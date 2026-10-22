@@ -18,7 +18,7 @@ jobs:
       - run: pio run -e jc3248w535c
       - name: Build complete flash image (offset 0x0)
         run: |
-          python -m esptool --chip esp32s3 merge_bin -o JC3248W535C_CALENDAR_V3_fullflash.bin --flash_mode qio --flash_freq 80m --flash_size 16MB \
+          python -m esptool --chip esp32s3 merge_bin -o JC3248W535C_CALENDAR_V3_fullflash.bin --flash_mode dio --flash_freq 40m --flash_size 16MB \
             0x0 .pio/build/jc3248w535c/bootloader.bin \
             0x8000 .pio/build/jc3248w535c/partitions.bin \
             0x10000 .pio/build/jc3248w535c/firmware.bin
